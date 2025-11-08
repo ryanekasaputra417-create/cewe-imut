@@ -1,0 +1,95 @@
+/* style.css untuk Visual Novel */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #111;
+    font-family: sans-serif;
+    overflow: hidden; 
+}
+
+#game-container {
+    position: relative;
+    /* Ukuran tampilan utama */
+    width: 960px; 
+    height: 720px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    /* Latar belakang diatur oleh JavaScript */
+    transition: background-image 1s ease-in-out; 
+}
+
+/* --- Style untuk Potret Karakter MC --- */
+#characterPortrait {
+    position: absolute;
+    bottom: 140px; /* Posisi di atas dialog box */
+    left: 50px; /* Di sebelah kiri */
+    max-height: 80%; /* Batas tinggi */
+    max-width: 40%; /* Batas lebar agar tidak menutupi seluruh layar */
+    z-index: 40; 
+    object-fit: contain;
+    /* Efek visual */
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+/* --- Style untuk Dialog Box --- */
+#dialogBox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 150px; 
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 15px;
+    box-sizing: border-box;
+    border-top: 5px solid #ffcc00; 
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+}
+
+#dialogText {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Container untuk tombol pilihan */
+#optionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Jarak antar tombol */
+}
+
+#optionsContainer button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px 15px;
+    text-align: left;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+#optionsContainer button:hover {
+    background-color: #555;
+}
+
+/* Helper Class */
+.hidden {
+    display: none !important;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 960px) {
+    #game-container {
+        width: 100vw;
+        height: 100vh;
+    }
+}
